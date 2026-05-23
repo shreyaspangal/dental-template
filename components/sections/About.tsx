@@ -1,0 +1,71 @@
+import type { MetricItem } from "@/lib/types";
+
+interface AboutProps {
+  badge: string;
+  headline: string;
+  videoSrc: string;
+  metrics: MetricItem[];
+}
+
+function MetricCard({ metric }: { metric: MetricItem }) {
+  return (
+    <div className="rounded-2xl bg-cream p-7.5 flex flex-col justify-between flex-1">
+      <div className="flex items-center justify-between">
+        <p
+          className="font-normal leading-none text-charcoal-900"
+          style={{ fontSize: 48, letterSpacing: "-0.025em" }}
+        >
+          {metric.value}
+        </p>
+        <span className="animate-spin-medium font-semibold text-2xl text-charcoal-900 shrink-0">✳</span>
+      </div>
+      <p className="text-base font-light text-charcoal-400 mt-4">
+        {metric.description}
+      </p>
+    </div>
+  );
+}
+
+export function About({ badge, headline, videoSrc, metrics }: AboutProps) {
+  return (
+    <section id="about" className="pt-30 pb-0">
+      <div className="container-base">
+        {/* Top row: badge far-left, headline far-right */}
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-12.5">
+          <span className="inline-flex w-fit items-center gap-2 shrink-0 bg-blush-100 rounded-pill px-6 py-3 text-base font-light text-charcoal-900">
+            <span className="animate-spin-medium font-semibold text-lg text-charcoal-900">✳</span>
+            {badge}
+          </span>
+          <h2
+            className="font-normal leading-[1.2] text-charcoal-900 lg:max-w-200"
+            style={{ fontSize: 48, letterSpacing: "-0.025em" }}
+          >
+            {headline}
+          </h2>
+        </div>
+
+        {/* Bottom row: video + metrics */}
+        <div className="flex flex-col lg:flex-row gap-4">
+          {/* Video */}
+          <div className="flex-1 rounded-lg overflow-hidden lg:h-150">
+            <video
+              src={videoSrc}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Metric cards column */}
+          <div className="lg:max-w-107.5 w-full p-2 rounded-lg flex flex-col gap-2 bg-blush-100">
+            {metrics.map((metric) => (
+              <MetricCard key={metric.value} metric={metric} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
