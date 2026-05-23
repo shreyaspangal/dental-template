@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# dev scripts (reusable extraction/capture tools, not production code)
+capture-sections.mjs
+extract-images.mjs
+extract-styles.mjs
+
+# generated dev artifacts (screenshots, playwright snapshots/logs)
+/section-screenshots/
+/.playwright-mcp/
