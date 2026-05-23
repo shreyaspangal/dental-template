@@ -1,26 +1,128 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* ── Brand Colors ─────────────────────────────────── */
+  /* exact values from reference site */
+  --color-blush-50:  #fff7fc;
+  --color-blush-100: #FFD7F2;
+  --color-blush-200: #f5b8e4;
+  --color-blush-300: #e88fd1;
+  --color-blush-400: #d45fb8;
+  --color-blush-500: #b83098;
+
+  /* off-white navbar background from reference */
+  --color-cream: #FBFBF7;
+
+  --color-charcoal-50:  #f4f4f6;
+  --color-charcoal-100: #e8e8ec;
+  --color-charcoal-200: #c8c8d2;
+  --color-charcoal-300: #9898aa;
+  --color-charcoal-400: #64647a;
+  --color-charcoal-700: #2e2e40;
+  --color-charcoal-800: #1e1e2c;
+  --color-charcoal-900: #14141f;
+
+  --color-mint-100: #d4f5e4;
+  --color-mint-200: #a9eac9;
+  --color-mint-400: #52c98a;
+
+  /* ── Typography ───────────────────────────────────── */
+  --font-display: var(--font-syne);
+  --font-body:    var(--font-figtree);
+
+  /* ── Border Radius ────────────────────────────────── */
+  --radius-sm:   0.5rem;
+  --radius-md:   1rem;
+  --radius-lg:   1.5rem;
+  --radius-xl:   2rem;
+  --radius-pill: 9999px;
+
+  /* ── Shadows ──────────────────────────────────────── */
+  --shadow-card:       0 1px 8px 0 rgb(20 20 31 / 0.06), 0 2px 4px -1px rgb(20 20 31 / 0.04);
+  --shadow-card-hover: 0 8px 32px -4px rgb(20 20 31 / 0.12), 0 2px 8px -2px rgb(20 20 31 / 0.06);
+  --shadow-float:      0 20px 60px -12px rgb(20 20 31 / 0.18);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Base ─────────────────────────────────────────────── */
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scrolling */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body, ui-sans-serif, system-ui, sans-serif);
+  background-color: var(--color-cream);
+  color: var(--color-charcoal-800);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display, ui-sans-serif, system-ui, sans-serif);
+}
+
+/* ── Marquee ──────────────────────────────────────────── */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 32s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* ── Separator spin ───────────────────────────────────── */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 6s linear infinite;
+  display: inline-block;
+}
+
+.animate-spin-medium {
+  animation: spin-slow 3s linear infinite;
+  display: inline-block;
+}
+
+/* ── Fade-up entrance ─────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── Layout helpers ───────────────────────────────────── */
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 7.5rem;
+    padding-bottom: 7.5rem;
+  }
+}
+
+.container-base {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-base {
+    padding-inline: 3.125rem; /* 50px — matches reference nav container */
+  }
 }
