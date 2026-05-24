@@ -8,7 +8,7 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { Team } from "@/components/sections/Team";
 import { FAQ } from "@/components/sections/FAQ";
 import { Blog } from "@/components/sections/Blog";
-import { Instagram } from "@/components/sections/Instagram";
+import { FollowUs } from "@/components/sections/FollowUs";
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/sections/Footer";
 
@@ -106,8 +106,8 @@ export default function HomePage() {
           posts={BLOG_POSTS}
         />
 
-        {/* ── Instagram ─────────────────────────────────── */}
-        <Instagram
+        {/* ── Follow Us ─────────────────────────────────── */}
+        <FollowUs
           badge={INSTAGRAM_SECTION.badge}
           headline={INSTAGRAM_SECTION.headline}
           handle={INSTAGRAM_SECTION.handle}

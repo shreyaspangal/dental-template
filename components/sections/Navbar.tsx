@@ -1,10 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Link from "next/link";
 import { X, AlignJustify } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { useLenisRef } from "@/components/SmoothScroll";
 import type { NavLink } from "@/lib/types";
+
+const NAVBAR_HEIGHT = 91; // h-22.75 = 22.75 * 4px
 
 interface NavbarProps {
   links: NavLink[];
@@ -32,6 +35,16 @@ function ToothIcon({ className }: { className?: string }) {
 
 export function Navbar({ links, bookingUrl }: NavbarProps) {
   const [open, setOpen] = useState(false);
+  const lenisRef = useLenisRef();
+
+  const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith("#")) return;
+    e.preventDefault();
+    setOpen(false);
+    const target = document.querySelector(href);
+    if (!target) return;
+    lenisRef.current?.scrollTo(target as HTMLElement, { offset: -NAVBAR_HEIGHT });
+  }, [lenisRef]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-blush-100" style={{ backgroundColor: "#FBFBF7" }}>
@@ -54,6 +67,7 @@ export function Navbar({ links, bookingUrl }: NavbarProps) {
             <Link
               key={link.href}
               href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="text-base font-medium text-charcoal-400 hover:text-charcoal-900 transition-colors duration-200"
             >
               {link.label}
@@ -86,7 +100,7 @@ export function Navbar({ links, bookingUrl }: NavbarProps) {
               key={link.href}
               href={link.href}
               className="text-base font-medium text-charcoal-700 hover:text-charcoal-900"
-              onClick={() => setOpen(false)}
+              onClick={(e) => handleNavClick(e, link.href)}
             >
               {link.label}
             </Link>
