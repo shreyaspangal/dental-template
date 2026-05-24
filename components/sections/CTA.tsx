@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import { FadeIn } from "@/components/animations";
 
 interface CTAProps {
   headline: string;
@@ -23,11 +24,11 @@ export function CTA({
   const lines = headline.split("\n");
 
   return (
-    <section className="bg-blush-100 py-30">
+    <section className="bg-blush-100 py-30 overflow-x-clip">
       <div className="container-base">
         <div className="flex flex-row items-center gap-[50px]">
-          {/* Left image */}
-          <div className="hidden lg:block shrink-0 -rotate-12 relative rounded-[20px] overflow-hidden" style={{ width: 250, height: 350 }}>
+          {/* Left image — sweeps in from the left */}
+          <FadeIn direction="right" distance={80} amount={0.4} className="hidden lg:block shrink-0 -rotate-12 relative rounded-[20px] overflow-hidden" style={{ width: 250, height: 350 }}>
             <Image
               src={imageLeft}
               alt={imageLeftAlt}
@@ -35,10 +36,10 @@ export function CTA({
               sizes="250px"
               className="object-cover"
             />
-          </div>
+          </FadeIn>
 
-          {/* Centre text */}
-          <div className="flex-1 flex flex-col items-center gap-[30px] text-center">
+          {/* Centre text — fades up from bottom */}
+          <FadeIn distance={80} delay={0.2} amount={0.4} className="flex-1 flex flex-col items-center gap-[30px] text-center">
             <h2
               className="font-normal leading-[1.2] text-charcoal-900"
               style={{ fontSize: 48, letterSpacing: "-0.025em" }}
@@ -53,10 +54,10 @@ export function CTA({
             <Button href={bookingUrl} variant="primary" size="md" external>
               Book A Call
             </Button>
-          </div>
+          </FadeIn>
 
-          {/* Right image */}
-          <div className="hidden lg:block rotate-12 shrink-0 relative rounded-[20px] overflow-hidden" style={{ width: 250, height: 350 }}>
+          {/* Right image — sweeps in from the right */}
+          <FadeIn direction="left" distance={80} amount={0.4} className="hidden lg:block rotate-12 shrink-0 relative rounded-[20px] overflow-hidden" style={{ width: 250, height: 350 }}>
             <Image
               src={imageRight}
               alt={imageRightAlt}
@@ -64,7 +65,7 @@ export function CTA({
               sizes="250px"
               className="object-cover"
             />
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>

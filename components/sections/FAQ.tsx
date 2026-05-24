@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Plus, Minus } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FadeIn } from "@/components/animations";
 import type { FAQItem } from "@/lib/types";
 
 interface FAQProps {
@@ -29,7 +31,7 @@ function AccordionItem({
         onClick={onToggle}
         aria-expanded={isOpen}
       >
-        <span className="text-base font-light text-charcoal-900 leading-snug">
+        <span className="text-lg font-medium text-charcoal-900 leading-snug">
           {item.question}
         </span>
         <span className="shrink-0 text-charcoal-900">
@@ -37,13 +39,23 @@ function AccordionItem({
         </span>
       </button>
 
-      {isOpen && (
-        <div className="px-[30px] pb-[30px]">
-          <p className="text-base font-light text-charcoal-400 leading-relaxed">
-            {item.answer}
-          </p>
-        </div>
-      )}
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            style={{ overflow: "hidden" }}
+          >
+            <div className="px-[30px] pb-[30px]">
+              <p className="text-base font-light text-charcoal-400 leading-relaxed">
+                {item.answer}
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -53,11 +65,11 @@ export function FAQ({ badge, headline, image, imageAlt, items }: FAQProps) {
   const lines = headline.split("\n");
 
   return (
-    <section id="faq" className="py-30">
+    <section id="faq" className="py-30 overflow-x-clip">
       <div className="container-base">
-        <div className="flex flex-col lg:flex-row gap-[30px]">
-          {/* Left — heading + image */}
-          <div className="flex flex-col gap-[100px] lg:w-[432px] shrink-0">
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-[30px]">
+          {/* Left — sweeps in from the left */}
+          <FadeIn direction="right" distance={80} amount={0.4} className="flex flex-col gap-[100px] lg:w-[432px] shrink-0">
             {/* Heading */}
             <div className="flex flex-col gap-[10px]">
               <span className="inline-flex w-fit items-center gap-2 bg-blush-100 rounded-pill px-6 py-3 text-base font-light text-charcoal-900">
@@ -87,10 +99,10 @@ export function FAQ({ badge, headline, image, imageAlt, items }: FAQProps) {
                 className="object-cover"
               />
             </div>
-          </div>
+          </FadeIn>
 
-          {/* Right — accordion */}
-          <div className="flex-1 bg-blush-100 rounded-[30px] p-[10px]">
+          {/* Right — sweeps in from the right, 0.2s after left */}
+          <FadeIn direction="left" distance={80} delay={0.2} amount={0.4} className="h-fit w-full max-w-[650px] bg-blush-100 rounded-[30px] p-[10px]">
             <div className="flex flex-col gap-[10px]">
               {items.map((item) => (
                 <AccordionItem
@@ -101,7 +113,7 @@ export function FAQ({ badge, headline, image, imageAlt, items }: FAQProps) {
                 />
               ))}
             </div>
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>

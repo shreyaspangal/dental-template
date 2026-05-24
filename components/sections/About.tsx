@@ -1,3 +1,4 @@
+import { FadeIn } from "@/components/animations";
 import type { MetricItem } from "@/lib/types";
 
 interface AboutProps {
@@ -28,25 +29,28 @@ function MetricCard({ metric }: { metric: MetricItem }) {
 
 export function About({ badge, headline, videoSrc, metrics }: AboutProps) {
   return (
-    <section id="about" className="pt-30 pb-0">
+    <section id="about" className="pt-30 pb-0 overflow-x-clip">
       <div className="container-base">
-        {/* Top row: badge far-left, headline far-right */}
+        {/* Row 1 — 2-col: badge sweeps in from far left, headline from far right */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-12.5">
-          <span className="inline-flex w-fit items-center gap-2 shrink-0 bg-blush-100 rounded-pill px-6 py-3 text-base font-light text-charcoal-900">
-            <span className="animate-spin-medium font-semibold text-lg text-charcoal-900">✳</span>
-            {badge}
-          </span>
-          <h2
-            className="font-normal leading-[1.2] text-charcoal-900 lg:max-w-200"
-            style={{ fontSize: 48, letterSpacing: "-0.025em" }}
-          >
-            {headline}
-          </h2>
+          <FadeIn direction="right" distance={80} amount={0.4} className="shrink-0">
+            <span className="inline-flex w-fit items-center gap-2 bg-blush-100 rounded-pill px-6 py-3 text-base font-light text-charcoal-900">
+              <span className="animate-spin-medium font-semibold text-lg text-charcoal-900">✳</span>
+              {badge}
+            </span>
+          </FadeIn>
+          <FadeIn direction="left" distance={80} delay={0.2} amount={0.4}>
+            <h2
+              className="font-normal leading-[1.2] text-charcoal-900 lg:max-w-200"
+              style={{ fontSize: 48, letterSpacing: "-0.025em" }}
+            >
+              {headline}
+            </h2>
+          </FadeIn>
         </div>
 
-        {/* Bottom row: video + metrics */}
-        <div className="flex flex-col lg:flex-row gap-4">
-          {/* Video */}
+        {/* Row 2 — fades up as one unit after row 1 */}
+        <FadeIn delay={0.5} distance={80} amount={0.2} className="flex flex-col lg:flex-row gap-4">
           <div className="flex-1 rounded-lg overflow-hidden lg:h-150">
             <video
               src={videoSrc}
@@ -58,13 +62,12 @@ export function About({ badge, headline, videoSrc, metrics }: AboutProps) {
             />
           </div>
 
-          {/* Metric cards column */}
           <div className="lg:max-w-107.5 w-full p-2 rounded-lg flex flex-col gap-2 bg-blush-100">
             {metrics.map((metric) => (
               <MetricCard key={metric.value} metric={metric} />
             ))}
           </div>
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

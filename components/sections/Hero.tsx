@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import { Shield, Star } from "lucide-react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+import { FadeIn, TextSplit } from "@/components/animations";
 import type { HERO as HeroData } from "@/lib/data";
 
 type HeroConfig = typeof HeroData;
@@ -15,15 +19,22 @@ export function Hero({ data, bookingUrl }: HeroProps) {
 
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* Background image */}
-      <Image
-        src={data.image}
-        alt={data.imageAlt}
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center"
-      />
+      {/* Background image — scales down from 1.5 on mount */}
+      <motion.div
+        className="absolute inset-0"
+        initial={{ scale: 1.5 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <Image
+          src={data.image}
+          alt={data.imageAlt}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </motion.div>
 
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-linear-to-r from-charcoal-600/80 via-charcoal-600/90 to-transparent" />
@@ -31,29 +42,40 @@ export function Hero({ data, bookingUrl }: HeroProps) {
       {/* Content */}
       <div className="container-base relative z-10 py-24">
         <div className="max-w-xl">
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-white mb-6 animate-fade-up">
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-white mb-6">
             {lines.map((line, i) => (
-              <span key={i} className="block whitespace-nowrap">
-                {line}
-              </span>
+              <TextSplit
+                key={i}
+                text={line}
+                as="span"
+                className="block whitespace-nowrap"
+                delay={i * 0.28}
+                staggerDelay={0.03}
+                distance={18}
+                damping={28}
+                stiffness={130}
+              />
             ))}
           </h1>
 
-          <p className="text-base md:text-lg text-white/80 leading-relaxed mb-8 max-w-sm animate-fade-up [animation-delay:150ms]">
+          <FadeIn as="p" delay={0.55} distance={16} className="text-base md:text-lg text-white/80 leading-relaxed mb-8 max-w-sm">
             {data.body}
-          </p>
+          </FadeIn>
 
-          <div className="animate-fade-up [animation-delay:300ms]">
+          <FadeIn delay={0.7} distance={16}>
             <Button href={bookingUrl} size="md" variant="secondary" external>
               Book A Call
             </Button>
-          </div>
+          </FadeIn>
         </div>
       </div>
 
       {/* Trust card — absolute bottom-right */}
-      <div
-        className="absolute w-[320px] p-7.5 rounded-[30px] bottom-12.5 right-12.5 z-10 hidden md:flex flex-col gap-7.5 animate-fade-up [animation-delay:450ms] backdrop-blur-lg bg-white/2 border border-white/10"
+      <FadeIn
+        direction="left"
+        delay={0.6}
+        distance={24}
+        className="absolute w-[320px] p-7.5 rounded-[30px] bottom-12.5 right-12.5 z-10 hidden md:flex flex-col gap-7.5 backdrop-blur-lg bg-white/2 border border-white/10"
       >
         {/* Support row */}
         <div className="flex items-center gap-5">
@@ -89,7 +111,7 @@ export function Hero({ data, bookingUrl }: HeroProps) {
             </p>
           </div>
         </div>
-      </div>
+      </FadeIn>
     </section>
   );
 }

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
+import { FadeIn } from "@/components/animations";
 import type { ContactInfo, BusinessHour, FooterLink, SocialLink } from "@/lib/types";
 
 interface FooterProps {
@@ -14,7 +15,7 @@ interface FooterProps {
 
 function InfoCard({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex-1 bg-cream rounded-[20px] p-[30px] flex flex-col gap-[10px]">
+    <div className="w-full bg-cream rounded-[20px] p-[30px] flex flex-col gap-[10px]">
       <p className="font-normal text-charcoal-900" style={{ fontSize: 30 }}>
         {label}
       </p>
@@ -129,93 +130,103 @@ function FormPanel() {
 
 export function Footer({ info, hours, menuLinks, socialLinks, copyrightName }: FooterProps) {
   return (
-    <footer id="contact" className="py-[50px]">
+    <footer id="contact" className="py-[50px] overflow-x-clip">
       <div className="container-base">
         <div className="bg-blush-100 rounded-[30px] p-[10px] flex flex-col gap-[10px]">
 
           {/* Row 1 — Contact info cards */}
           <div className="flex flex-col lg:flex-row gap-[10px]">
-            <InfoCard label="Email" value={info.email} />
-            <InfoCard label="Phone" value={info.phone} />
-            <InfoCard label="Address" value={info.address} />
+            <FadeIn distance={80} amount={0.4} className="flex-1">
+              <InfoCard label="Email" value={info.email} />
+            </FadeIn>
+            <FadeIn distance={80} delay={0.1} amount={0.4} className="flex-1">
+              <InfoCard label="Phone" value={info.phone} />
+            </FadeIn>
+            <FadeIn distance={80} delay={0.2} amount={0.4} className="flex-1">
+              <InfoCard label="Address" value={info.address} />
+            </FadeIn>
           </div>
 
           {/* Row 2 — Business hours + Form */}
-          <div className="flex flex-col lg:flex-row gap-[10px]">
-            <HoursPanel hours={hours} />
-            <FormPanel />
-          </div>
+          <FadeIn distance={80} delay={0.3} amount={0.2}>
+            <div className="flex flex-col lg:flex-row gap-[10px]">
+              <HoursPanel hours={hours} />
+              <FormPanel />
+            </div>
+          </FadeIn>
 
           {/* Row 3 — Footer nav (cream card) */}
-          <div className="bg-cream rounded-[20px] p-[30px] flex flex-col gap-[30px]">
-            {/* Top: brand + menu + social */}
-            <div className="flex flex-col lg:flex-row gap-[10px] items-start">
-              {/* Brand */}
-              <div className="flex-1">
-                <p
-                  className="font-normal leading-none text-charcoal-900"
-                  style={{ fontSize: 96 }}
-                >
-                  Denta<br />Care
-                </p>
-              </div>
+          <FadeIn distance={80} delay={0.4} amount={0.2}>
+            <div className="bg-cream rounded-[20px] p-[30px] flex flex-col gap-[30px]">
+              {/* Top: brand + menu + social */}
+              <div className="flex flex-col lg:flex-row gap-[10px] items-start">
+                {/* Brand */}
+                <div className="flex-1">
+                  <p
+                    className="font-normal leading-none text-charcoal-900"
+                    style={{ fontSize: 96 }}
+                  >
+                    Denta<br />Care
+                  </p>
+                </div>
 
-              {/* Menu */}
-              <div className="lg:w-[250px] flex flex-col gap-[20px]">
-                <p className="font-normal text-charcoal-900" style={{ fontSize: 30 }}>
-                  Menu
-                </p>
-                <nav className="flex flex-col gap-[20px]">
-                  {menuLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className="text-base font-light text-charcoal-900 hover:text-charcoal-400 transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-
-              {/* Social */}
-              <div className="lg:w-[250px] flex flex-col gap-[20px]">
-                <p className="font-normal text-charcoal-900" style={{ fontSize: 30 }}>
-                  Follow Us
-                </p>
-                <ul className="flex flex-col gap-[20px]">
-                  {socialLinks.map((link) => (
-                    <li key={link.label}>
+                {/* Menu */}
+                <div className="lg:w-[250px] flex flex-col gap-[20px]">
+                  <p className="font-normal text-charcoal-900" style={{ fontSize: 30 }}>
+                    Menu
+                  </p>
+                  <nav className="flex flex-col gap-[20px]">
+                    {menuLinks.map((link) => (
                       <Link
+                        key={link.href}
                         href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className="text-base font-light text-charcoal-900 hover:text-charcoal-400 transition-colors"
                       >
                         {link.label}
                       </Link>
-                    </li>
-                  ))}
-                </ul>
+                    ))}
+                  </nav>
+                </div>
+
+                {/* Social */}
+                <div className="lg:w-[250px] flex flex-col gap-[20px]">
+                  <p className="font-normal text-charcoal-900" style={{ fontSize: 30 }}>
+                    Follow Us
+                  </p>
+                  <ul className="flex flex-col gap-[20px]">
+                    {socialLinks.map((link) => (
+                      <li key={link.label}>
+                        <Link
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-base font-light text-charcoal-900 hover:text-charcoal-400 transition-colors"
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* Separator */}
+              <div className="h-px bg-charcoal-900/15" />
+
+              {/* Bottom: copyright + terms */}
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-[10px]">
+                <p className="text-base font-light text-charcoal-900">
+                  © {copyrightName} {new Date().getFullYear()}. All rights reserved
+                </p>
+                <Link
+                  href="/terms"
+                  className="text-base font-light text-charcoal-900 hover:text-charcoal-400 transition-colors"
+                >
+                  Terms &amp; Conditions
+                </Link>
               </div>
             </div>
-
-            {/* Separator */}
-            <div className="h-px bg-charcoal-900/15" />
-
-            {/* Bottom: copyright + terms */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-[10px]">
-              <p className="text-base font-light text-charcoal-900">
-                © {copyrightName} {new Date().getFullYear()}. All rights reserved
-              </p>
-              <Link
-                href="/terms"
-                className="text-base font-light text-charcoal-900 hover:text-charcoal-400 transition-colors"
-              >
-                Terms &amp; Conditions
-              </Link>
-            </div>
-          </div>
+          </FadeIn>
 
         </div>
       </div>
