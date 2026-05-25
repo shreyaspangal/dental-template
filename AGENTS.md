@@ -28,3 +28,31 @@ These defaults are optimized for AI coding agents (and humans) working on apps t
   needed. Always curl https://ai-gateway.vercel.sh/v1/models first; never trust model IDs from memory
 - For durable agent loops or untrusted code: use Workflow (pause/resume/state) + Sandbox; use Vercel MCP for secure infra access
 <!-- VERCEL BEST PRACTICES END -->
+
+## Project architecture — multi-brand template
+
+This repo is a **static landing page template** that can be deployed once per client, brand-selected at build time via `BRAND=<slug> pnpm build`.
+
+### Key files
+
+| File | Role |
+|------|------|
+| `lib/data.ts` | Default content (dental baseline) — **never edit for a client** |
+| `lib/types.ts` | TypeScript interfaces for every section's data shape |
+| `lib/brand-types.ts` | `BrandContent`, `BrandTheme`, `DeepPartial<T>` |
+| `lib/brand.ts` | `loadBrand()` — reads `BRAND` env var, deep-merges override, resolves assets |
+| `app/page.tsx` | Calls `loadBrand()`, passes content to section components |
+| `app/layout.tsx` | Calls `loadBrand()`, injects theme CSS vars, drives metadata |
+| `brands/<slug>/content.json` | Per-client partial override of `BrandContent` |
+| `brands/<slug>/theme.json` | Per-client CSS variable overrides |
+| `brands/<slug>/assets/` | Local images; prebuild copies to `public/brands/<slug>/` |
+| `scripts/copy-brand-assets.mjs` | Prebuild step that copies brand assets |
+
+### Rules for agents
+
+- **Never modify `lib/data.ts` for a client** — add `brands/<slug>/content.json` instead.
+- **Section components are never touched** — they're already fully props-driven. All content customization goes through `lib/brand.ts` + `brands/`.
+- Arrays in `content.json` **replace** the default array wholesale. Objects **deep-merge**.
+- Relative asset values in `content.json` (no `https://` prefix) are resolved to `/brands/<slug>/<value>` by the loader. Absolute URLs pass through unchanged.
+- To add a new client: `mkdir brands/<slug>`, create `content.json` + optional `theme.json` + optional `assets/`, run `BRAND=<slug> pnpm dev`.
+- See `brands/example/` for a worked reference and `README.md` for full schema docs.

@@ -36,13 +36,16 @@ export function Hero({ data, bookingUrl }: HeroProps) {
         />
       </motion.div>
 
+      {/* Brand overlay (configurable via --hero-overlay CSS var; transparent by default) */}
+      <div className="absolute inset-0" style={{ backgroundColor: "var(--hero-overlay, transparent)" }} />
+
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-linear-to-r from-charcoal-600/80 via-charcoal-600/90 to-transparent" />
 
       {/* Content */}
       <div className="container-base relative z-10 py-24">
         <div className="max-w-xl">
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-white mb-6">
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-cream mb-6">
             {lines.map((line, i) => (
               <TextSplit
                 key={i}
@@ -58,7 +61,7 @@ export function Hero({ data, bookingUrl }: HeroProps) {
             ))}
           </h1>
 
-          <FadeIn as="p" delay={0.55} distance={16} className="text-base md:text-lg text-white/80 leading-relaxed mb-8 max-w-sm">
+          <FadeIn as="p" delay={0.55} distance={16} className="text-base md:text-lg text-cream/80 leading-relaxed mb-8 max-w-sm">
             {data.body}
           </FadeIn>
 
@@ -75,21 +78,21 @@ export function Hero({ data, bookingUrl }: HeroProps) {
         direction="left"
         delay={0.6}
         distance={24}
-        className="absolute w-[320px] p-7.5 rounded-[30px] bottom-12.5 right-12.5 z-10 hidden md:flex flex-col gap-7.5 backdrop-blur-lg bg-white/2 border border-white/10"
+        className="absolute w-[320px] p-7.5 rounded-[30px] bottom-12.5 right-12.5 z-10 hidden md:flex flex-col gap-7.5 backdrop-blur-lg bg-cream/5 border border-cream/10"
       >
         {/* Support row */}
         <div className="flex items-center gap-5">
           <span
-            className="shrink-0 flex items-center justify-center backdrop-blur-2xl bg-white/5"
+            className="shrink-0 flex items-center justify-center backdrop-blur-2xl bg-cream/5"
             style={{ width: 62, height: 62, borderRadius: "100px" }}
           >
-            <Shield size={22} color="rgb(251,251,247)" />
+            <Shield size={22} className="text-cream" />
           </span>
           <div className="flex flex-col gap-1.25">
-            <p className="font-normal leading-none" style={{ fontSize: 30, color: "rgb(251,251,247)" }}>
+            <p className="font-normal leading-none text-cream" style={{ fontSize: 30 }}>
               {data.trustCard.support.label}
             </p>
-            <p className="font-light leading-snug" style={{ fontSize: 16, color: "rgb(251,251,247)" }}>
+            <p className="font-light leading-snug text-cream" style={{ fontSize: 16 }}>
               {data.trustCard.support.value}
             </p>
           </div>
@@ -97,16 +100,16 @@ export function Hero({ data, bookingUrl }: HeroProps) {
         {/* Ratings row */}
         <div className="flex items-center gap-5">
           <span
-            className="shrink-0 flex items-center justify-center backdrop-blur-2xl bg-white/5"
+            className="shrink-0 flex items-center justify-center backdrop-blur-2xl bg-cream/5"
             style={{ width: 62, height: 62, borderRadius: "100px" }}
           >
-            <Star size={22} color="rgb(251,251,247)" />
+            <Star size={22} className="text-cream" />
           </span>
           <div className="flex flex-col gap-1.25">
-            <p className="font-normal leading-none" style={{ fontSize: 30, color: "rgb(251,251,247)" }}>
+            <p className="font-normal leading-none text-cream" style={{ fontSize: 30 }}>
               {data.trustCard.ratings.label}
             </p>
-            <p className="font-light leading-snug" style={{ fontSize: 16, color: "rgb(251,251,247)" }}>
+            <p className="font-light leading-snug text-cream" style={{ fontSize: 16 }}>
               {data.trustCard.ratings.value}
             </p>
           </div>

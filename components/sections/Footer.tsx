@@ -11,6 +11,7 @@ interface FooterProps {
   menuLinks: FooterLink[];
   socialLinks: SocialLink[];
   copyrightName: string;
+  termsUrl?: string;
 }
 
 function InfoCard({ label, value }: { label: string; value: string }) {
@@ -128,7 +129,7 @@ function FormPanel() {
   );
 }
 
-export function Footer({ info, hours, menuLinks, socialLinks, copyrightName }: FooterProps) {
+export function Footer({ info, hours, menuLinks, socialLinks, copyrightName, termsUrl = "#" }: FooterProps) {
   return (
     <footer id="contact" className="py-[50px] overflow-x-clip">
       <div className="container-base">
@@ -166,7 +167,9 @@ export function Footer({ info, hours, menuLinks, socialLinks, copyrightName }: F
                     className="font-normal leading-none text-charcoal-900"
                     style={{ fontSize: 96 }}
                   >
-                    Denta<br />Care
+                    {copyrightName.split(" ").map((word, i) => (
+                      <span key={i} className="block leading-none">{word}</span>
+                    ))}
                   </p>
                 </div>
 
@@ -219,7 +222,7 @@ export function Footer({ info, hours, menuLinks, socialLinks, copyrightName }: F
                   © {copyrightName} {new Date().getFullYear()}. All rights reserved
                 </p>
                 <Link
-                  href="/terms"
+                  href={termsUrl}
                   className="text-base font-light text-charcoal-900 hover:text-charcoal-400 transition-colors"
                 >
                   Terms &amp; Conditions

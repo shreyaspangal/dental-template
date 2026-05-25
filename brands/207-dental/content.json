@@ -1,0 +1,293 @@
+{
+  "LOGO": {
+    "url": "logo.png",
+    "alt": "207 Dental Care",
+    "name": "207 Dental Care"
+  },
+
+  "FAVICON": {
+    "icon":  "favicon-192.jpg",
+    "icon32": "favicon-32.jpg",
+    "apple": "apple-icon.jpg"
+  },
+
+  "METADATA": {
+    "title": "207 Dental Care — Your Private Dentist In Manchester",
+    "description": "Advanced dental treatments in the heart of Manchester. Caring for all your family's dental needs with the best price. Book your appointment today.",
+    "copyrightName": "207 Dental Care"
+  },
+
+  "BOOKING_URL": "https://uk.dentalhub.online/soe/new/207%20Dental%20Care?pid=UKTOS02",
+
+  "MARQUEE_ITEMS": [
+    "General Dentistry",
+    "Cosmetic Dentistry",
+    "Dental Implants",
+    "Teeth Whitening",
+    "Invisalign",
+    "Porcelain Veneers",
+    "Orthodontics",
+    "Dental Hygienist",
+    "Children's Treatment",
+    "Mouth Cancer Detection"
+  ],
+
+  "NAV_LINKS": [
+    { "label": "About",      "href": "#about" },
+    { "label": "Treatments", "href": "#services" },
+    { "label": "Our Team",   "href": "#team" },
+    { "label": "Contact Us", "href": "#contact" }
+  ],
+
+  "HERO": {
+    "headline": "Affordable Dentistry\nin Manchester",
+    "body": "Our mission is simple: we care for our patients as though they are family. Established for over 60 years in the heart of Manchester, we provide expert dental care for all the family.",
+    "image": "https://www.207dentalcare.com/storage/2023/05/Cosmetic-Dentistry-1.jpg",
+    "imageAlt": "Cosmetic dentistry at 207 Dental Care Manchester",
+    "trustCard": {
+      "support": { "label": "Established", "value": "60+ Years of Care" },
+      "ratings":  { "label": "Patients",   "value": "100% Recommend Us" }
+    }
+  },
+
+  "ABOUT": {
+    "badge": "About Us",
+    "headline": "207 Dental Care is situated in the heart of the City of Manchester. We have been established for over 60 years.",
+    "videoSrc": "about-video.m4v"
+  },
+
+  "METRICS": [
+    { "value": "60+",   "label": "Years Established",  "description": "Trusted dental care since the 1960s" },
+    { "value": "100%",  "label": "Patient Satisfaction","description": "Patients surveyed said they'd recommend us" },
+    { "value": "10+",   "label": "Specialist Dentists", "description": "Expert team across all disciplines" }
+  ],
+
+  "SERVICES_SECTION": {
+    "badge": "Treatments",
+    "headline": "Comprehensive dental care\nfor the whole family"
+  },
+
+  "SERVICES": [
+    {
+      "id": "general-dentistry",
+      "label": "General Dentistry",
+      "headline": "General Dentistry",
+      "description": "All aspects of dentistry from routine check-ups and fillings to complex crowns, implants and full smile makeovers — delivered with the latest technology and a gentle, patient-first approach.",
+      "treatments": [
+        "Dental Check-ups & Exams",
+        "Professional Teeth Cleaning",
+        "Composite Fillings",
+        "Life-like Crowns",
+        "Mouth Cancer Detection"
+      ],
+      "image": "https://www.207dentalcare.com/storage/2023/05/Cosmetic-Dentistry-1.jpg",
+      "imageAlt": "General dentistry at 207 Dental Care",
+      "imagePosition": "left"
+    },
+    {
+      "id": "cosmetic-dentistry",
+      "label": "Cosmetic Dentistry",
+      "headline": "Cosmetic Dentistry",
+      "description": "Enhance the beauty of your smile with our specialised cosmetic treatments. From subtle whitening to complete smile makeovers, we design results that look and feel completely natural.",
+      "treatments": [
+        "Teeth Whitening",
+        "Porcelain Veneers",
+        "Tooth Reshaping & Contouring",
+        "Dental Implants",
+        "Bridges & Inlays/Onlays"
+      ],
+      "image": "https://framerusercontent.com/images/ocwjmyhaxcxRyxfQsxMNtlQC1vA.png",
+      "imageAlt": "Cosmetic dentistry results",
+      "imagePosition": "right"
+    },
+    {
+      "id": "orthodontics",
+      "label": "Orthodontics",
+      "headline": "Orthodontics & Invisalign",
+      "description": "Achieve a perfectly aligned smile discreetly with Invisalign clear aligners — currently available from just £3,600 including a free consultation, free teeth whitening and free set of retainers.",
+      "treatments": [
+        "Invisalign Clear Aligners",
+        "Free Initial Consultation",
+        "Free Teeth Whitening Included",
+        "Free Retainers Included",
+        "Children's Orthodontic Treatment"
+      ],
+      "image": "https://framerusercontent.com/images/5m8qZIZ8adf6bvIFWwhJgnVwIk.png",
+      "imageAlt": "Invisalign orthodontic treatment",
+      "imagePosition": "left"
+    }
+  ],
+
+  "PROCESS_SECTION": {
+    "badge": "Our Process",
+    "headline": "Getting started is simple,\nstraightforward & stress-free."
+  },
+
+  "PROCESS_STEPS": [
+    {
+      "step": 1,
+      "title": "Book your appointment",
+      "description": "Use our online booking system to schedule at a time that suits you. New patient examinations start from just £110 — no hidden fees.",
+      "image": "https://framerusercontent.com/images/nHl8roFWPHjBfSPjavAVpCDtIMk.webp",
+      "imageAlt": "Booking a dental appointment"
+    },
+    {
+      "step": 2,
+      "title": "Meet your dentist",
+      "description": "Our experienced team will carry out a thorough examination and listen to your goals and concerns before recommending a personalised treatment plan.",
+      "image": "https://framerusercontent.com/images/IRKIsXCCh3fPxqXibVMVRnYr5Y.webp",
+      "imageAlt": "Meeting the dentist at 207 Dental Care"
+    },
+    {
+      "step": 3,
+      "title": "Begin your treatment",
+      "description": "We use the latest techniques and technology to ensure you're comfortable throughout — because we care for our patients as though they are family.",
+      "image": "https://framerusercontent.com/images/rtjvX4cnDQYgl9LEjFkUQV7yo.webp",
+      "imageAlt": "Dental treatment in progress"
+    }
+  ],
+
+  "TEAM_SECTION": {
+    "badge": "Our Team",
+    "headline": "Meet our dental team"
+  },
+
+  "TEAM_MEMBERS": [
+    {
+      "id": "jan-harris",
+      "name": "Dr Jan Harris",
+      "role": "Practice Principal",
+      "image": "https://www.207dentalcare.com/storage/2023/05/207-dental-team-Jan-Harris.jpg"
+    },
+    {
+      "id": "eric-easson",
+      "name": "Dr Eric Easson",
+      "role": "Dentist",
+      "image": "https://www.207dentalcare.com/storage/2023/05/207-dental-team-Dr-Eric-Easson-GDC.jpg"
+    },
+    {
+      "id": "ilana-lisagora",
+      "name": "Dr Ilana Lisagora",
+      "role": "Dentist",
+      "image": "https://www.207dentalcare.com/storage/2023/05/207-dental-team-Dr-Ilana-Lisagora-GDC.jpg"
+    },
+    {
+      "id": "emily-herd",
+      "name": "Dr Emily Herd",
+      "role": "Dentist",
+      "image": "https://www.207dentalcare.com/storage/2024/01/Emily-Herd.jpg"
+    },
+    {
+      "id": "alex-fox",
+      "name": "Alex Fox",
+      "role": "Practice Manager",
+      "image": "https://www.207dentalcare.com/storage/2026/02/Alex-Fox.jpg"
+    },
+    {
+      "id": "joe-mulhall",
+      "name": "Dr Joe Mulhall",
+      "role": "Dentist",
+      "image": "https://www.207dentalcare.com/storage/2026/02/Joe-Mulhall.jpg"
+    },
+    {
+      "id": "clodagh-fitzgerald",
+      "name": "Clodagh Fitzgerald",
+      "role": "Dental Nurse",
+      "image": "https://www.207dentalcare.com/storage/2025/08/Clodagh-Fitzgerald-Dental-Nurse.jpeg"
+    },
+    {
+      "id": "marta-tyl",
+      "name": "Marta Tyl",
+      "role": "Nurse",
+      "image": "https://www.207dentalcare.com/storage/2025/01/Marta.jpg"
+    },
+    {
+      "id": "charlotte-drinkwater",
+      "name": "Charlotte Drinkwater",
+      "role": "Hygienist",
+      "image": "https://www.207dentalcare.com/storage/2025/08/Charlotte-Drinkwater-Hygienist.jpeg"
+    },
+    {
+      "id": "lacey-irving",
+      "name": "Lacey Irving",
+      "role": "Apprentice Nurse",
+      "image": "https://www.207dentalcare.com/storage/2025/01/Lacey.jpg"
+    }
+  ],
+
+  "FAQ_SECTION": {
+    "badge": "FAQ",
+    "headline": "Got questions?\nWe've got answers",
+    "image": "https://framerusercontent.com/images/2qMzNaUVfi1OHTrH32Nrek1JEI.webp",
+    "imageAlt": "Doctor speaking with patient"
+  },
+
+  "FAQ_ITEMS": [
+    {
+      "id": "new-patients",
+      "question": "Are you accepting new patients?",
+      "answer": "Yes — we are currently accepting new private patients. We are also excited to announce that we have a limited number of spots available for new NHS patients. Please call us on 0161 834 0606 or book online to secure your place."
+    },
+    {
+      "id": "new-patient-exam-cost",
+      "question": "How much does a new patient examination cost?",
+      "answer": "New patient examinations start from just £110. This includes a thorough oral examination, bite-wing radiographs (which are mandatory for all new patients) and a full treatment plan with itemised costs before any work begins — so there are never any surprise charges."
+    },
+    {
+      "id": "invisalign",
+      "question": "How much does Invisalign cost at 207 Dental Care?",
+      "answer": "We currently offer Invisalign treatment from just £3,600 — which includes a FREE initial consultation, FREE teeth whitening upon completion, and a FREE set of retainers. Book a free consultation to find out if Invisalign is right for you."
+    },
+    {
+      "id": "emergency",
+      "question": "Do you offer emergency dental appointments?",
+      "answer": "Yes. We offer emergency appointments for registered patients. If you have a dental emergency such as severe toothache, a broken tooth or a lost filling, please call us on 0161 834 0606 and we will prioritise your care. Out-of-hours emergency support is also available for registered patients."
+    },
+    {
+      "id": "nervous-patients",
+      "question": "I'm nervous about visiting the dentist — can you help?",
+      "answer": "Absolutely. Many of our patients come to us feeling anxious, and our entire team is trained to provide a calm, gentle experience. We take our time to explain every step of your treatment and never rush you. Please let us know when booking and we will take extra care to ensure you feel comfortable."
+    }
+  ],
+
+  "INSTAGRAM_SECTION": {
+    "badge": "Follow Us",
+    "headline": "We're 207 Dental on Instagram",
+    "handle": "@207dental",
+    "href": "https://www.instagram.com/207dental"
+  },
+
+  "CTA_SECTION": {
+    "headline": "Book your appointment\nat 207 Dental Care today",
+    "body": "We care for our patients as though they are family. New patient examinations from just £110. Located at 207 Deansgate in the heart of Manchester — call us on 0161 834 0606 or book online."
+  },
+
+  "CONTACT_INFO": {
+    "email": "info@207dentalcare.com",
+    "phone": "0161 834 0606",
+    "address": "207 Deansgate, Manchester M3 3NW, UK"
+  },
+
+  "BUSINESS_HOURS": [
+    { "day": "Monday",    "hours": "9:00 AM – 1:00 PM / 2:00 PM – 5:00 PM", "isOpen": true },
+    { "day": "Tuesday",   "hours": "9:00 AM – 1:00 PM / 2:00 PM – 5:00 PM", "isOpen": true },
+    { "day": "Wednesday", "hours": "9:00 AM – 1:00 PM / 2:00 PM – 5:00 PM", "isOpen": true },
+    { "day": "Thursday",  "hours": "9:00 AM – 1:00 PM / 2:00 PM – 5:00 PM", "isOpen": true },
+    { "day": "Friday",    "hours": "9:00 AM – 1:00 PM / 2:00 PM – 5:00 PM", "isOpen": true },
+    { "day": "Saturday",  "hours": "Closed", "isOpen": false },
+    { "day": "Sunday",    "hours": "Closed", "isOpen": false }
+  ],
+
+  "FOOTER_MENU": [
+    { "label": "Home",       "href": "/" },
+    { "label": "About",      "href": "#about" },
+    { "label": "Treatments", "href": "#services" },
+    { "label": "Our Team",   "href": "#team" },
+    { "label": "Contact Us", "href": "#contact" }
+  ],
+
+  "SOCIAL_LINKS": [
+    { "label": "Facebook",  "href": "https://www.facebook.com/207dentalcaremanchester" },
+    { "label": "Instagram", "href": "https://www.instagram.com/207dental" }
+  ]
+}

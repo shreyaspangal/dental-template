@@ -11,6 +11,12 @@ const config: NextConfig = {
         protocol: "https",
         hostname: "framerusercontent.com",
       },
+      // Allow any HTTPS source so brands can reference CDN/S3/Blob URLs freely.
+      // Tighten per-brand in production if needed.
+      {
+        protocol: "https",
+        hostname: "**",
+      },
     ],
   },
 };

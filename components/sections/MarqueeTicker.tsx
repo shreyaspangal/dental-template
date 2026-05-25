@@ -21,18 +21,16 @@ export function MarqueeTicker({
 
   return (
     <div
-      className="w-full overflow-hidden py-2 select-none"
-      style={{ backgroundColor: "#FFD7F2" }}
+      className="w-full overflow-hidden py-2 select-none bg-blush-100"
       aria-hidden="true"
     >
       <div className={`flex min-w-max ${speedClass[speed]}`}>
         {doubled.map((item, i) => (
           <span
             key={i}
-            className="flex items-center gap-5 px-5 text-base font-light whitespace-nowrap"
-            style={{ color: "rgb(38, 41, 47)" }}
+            className="flex items-center gap-5 px-5 text-base font-light whitespace-nowrap text-charcoal-900"
           >
-            <span className="text-xl animate-spin-medium font-semibold" style={{ color: "rgb(38, 41, 47)" }}>{separator}</span>
+            <span className="text-xl animate-spin-medium font-semibold text-charcoal-900">{separator}</span>
             {item}
           </span>
         ))}

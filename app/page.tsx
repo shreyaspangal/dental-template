@@ -11,34 +11,18 @@ import { Blog } from "@/components/sections/Blog";
 import { FollowUs } from "@/components/sections/FollowUs";
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/sections/Footer";
+import { loadBrand } from "@/lib/brand";
 
-import {
-  MARQUEE_ITEMS,
-  NAV_LINKS,
-  BOOKING_URL,
-  HERO,
-  ABOUT,
-  METRICS,
-  SERVICES_SECTION,
-  SERVICES,
-  PROCESS_SECTION,
-  PROCESS_STEPS,
-  TESTIMONIALS_SECTION,
-  TESTIMONIALS,
-  TEAM_SECTION,
-  TEAM_MEMBERS,
-  FAQ_SECTION,
-  FAQ_ITEMS,
-  BLOG_SECTION,
-  BLOG_POSTS,
-  INSTAGRAM_SECTION,
-  INSTAGRAM_POSTS,
-  CTA_SECTION,
-  CONTACT_INFO,
-  BUSINESS_HOURS,
-  FOOTER_MENU,
-  SOCIAL_LINKS,
-} from "@/lib/data";
+const { content } = loadBrand();
+const {
+  LOGO, TERMS_URL,
+  MARQUEE_ITEMS, NAV_LINKS, BOOKING_URL, HERO, ABOUT, METRICS,
+  SERVICES_SECTION, SERVICES, PROCESS_SECTION, PROCESS_STEPS,
+  TESTIMONIALS_SECTION, TESTIMONIALS, TEAM_SECTION, TEAM_MEMBERS,
+  FAQ_SECTION, FAQ_ITEMS, BLOG_SECTION, BLOG_POSTS,
+  INSTAGRAM_SECTION, INSTAGRAM_POSTS, CTA_SECTION,
+  CONTACT_INFO, BUSINESS_HOURS, FOOTER_MENU, SOCIAL_LINKS, METADATA,
+} = content;
 
 export default function HomePage() {
   return (
@@ -47,7 +31,7 @@ export default function HomePage() {
       <MarqueeTicker items={MARQUEE_ITEMS} />
 
       {/* ── Navigation ────────────────────────────────── */}
-      <Navbar links={NAV_LINKS} bookingUrl={BOOKING_URL} />
+      <Navbar links={NAV_LINKS} bookingUrl={BOOKING_URL} logo={LOGO} />
 
       <main>
         {/* ── Hero ──────────────────────────────────────── */}
@@ -104,6 +88,7 @@ export default function HomePage() {
           badge={BLOG_SECTION.badge}
           headline={BLOG_SECTION.headline}
           posts={BLOG_POSTS}
+          viewAllUrl={BLOG_SECTION.viewAllUrl}
         />
 
         {/* ── Follow Us ─────────────────────────────────── */}
@@ -134,7 +119,8 @@ export default function HomePage() {
         hours={BUSINESS_HOURS}
         menuLinks={FOOTER_MENU}
         socialLinks={SOCIAL_LINKS}
-        copyrightName="DentaCare"
+        copyrightName={METADATA.copyrightName}
+        termsUrl={TERMS_URL}
       />
     </>
   );

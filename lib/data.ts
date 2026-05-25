@@ -12,10 +12,21 @@ import type {
   FooterLink,
   SocialLink,
   MetricItem,
+  BrandLogo,
 } from "./types";
 
 /* ── Framer CDN base ─────────────────────────────────────── */
 const F = "https://framerusercontent.com";
+
+export const LOGO: BrandLogo = {
+  url:  undefined,
+  alt:  "DentaCare",
+  name: "DentaCare",
+};
+
+export const FAVICON = {};   // falls back to app/favicon.ico when empty
+
+export const TERMS_URL = "#";
 
 export const MARQUEE_ITEMS: string[] = [
   "Dental Braces",
@@ -287,6 +298,7 @@ export const FAQ_ITEMS: FAQItem[] = [
 export const BLOG_SECTION = {
   badge: "Blog",
   headline: "Latest news",
+  viewAllUrl: "#blog",
 };
 
 export const BLOG_POSTS: BlogPost[] = [

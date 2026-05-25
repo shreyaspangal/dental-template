@@ -48,3 +48,11 @@ extract-styles.mjs
 # generated dev artifacts (screenshots, playwright snapshots/logs)
 /section-screenshots/
 /.playwright-mcp/
+
+# brand assets copied to public/ at prebuild — source lives in brands/<slug>/assets/
+/public/brands/
+
+# debug screenshots dumped during development
+/*.jpeg
+/*.png
+/*.jpg

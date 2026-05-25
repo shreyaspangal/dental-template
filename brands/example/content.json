@@ -1,0 +1,66 @@
+{
+  "METADATA": {
+    "title": "Example Co — Your Tagline Here",
+    "description": "Short description of Example Co used in OG/meta tags.",
+    "copyrightName": "Example Co"
+  },
+
+  "BOOKING_URL": "https://calendly.com/example-co",
+
+  "HERO": {
+    "headline": "Your Headline\nGoes Here",
+    "body": "Describe your business value proposition in 2–3 sentences. This text appears below the hero headline and should speak directly to your ideal customer.",
+    "trustCard": {
+      "support": { "label": "Support", "value": "24/7 Customer Support" },
+      "ratings": { "label": "Ratings", "value": "1000+ 5-Star Reviews" }
+    }
+  },
+
+  "ABOUT": {
+    "badge": "About Us",
+    "headline": "At Example Co, we do something great for our customers in a comfortable, modern setting."
+  },
+
+  "METRICS": [
+    { "value": "10+", "label": "Years Experience",   "description": "Serving customers since 2015" },
+    { "value": "50+", "label": "Team Members",        "description": "Experts across all disciplines" },
+    { "value": "2000+", "label": "Customers Helped", "description": "Happy clients worldwide" }
+  ],
+
+  "SERVICES_SECTION": {
+    "badge": "Services",
+    "headline": "Everything you need\nunder one roof"
+  },
+
+  "INSTAGRAM_SECTION": {
+    "badge": "Follow Us",
+    "headline": "We're ExampleCo on Instagram",
+    "handle": "Instagram",
+    "href": "https://instagram.com"
+  },
+
+  "CTA_SECTION": {
+    "headline": "Book your next\nappointment today",
+    "body": "Ready to get started? Schedule your appointment now and experience the difference."
+  },
+
+  "CONTACT_INFO": {
+    "email": "hello@example.co",
+    "phone": "+1 800 000 0000",
+    "address": "San Francisco, CA"
+  },
+
+  "FOOTER_MENU": [
+    { "label": "Home",       "href": "/" },
+    { "label": "About",      "href": "#about" },
+    { "label": "Services",   "href": "#services" },
+    { "label": "Blog",       "href": "#blog" },
+    { "label": "Contact Us", "href": "#contact" }
+  ],
+
+  "SOCIAL_LINKS": [
+    { "label": "LinkedIn",  "href": "https://linkedin.com" },
+    { "label": "Instagram", "href": "https://instagram.com" },
+    { "label": "X",         "href": "https://x.com" }
+  ]
+}

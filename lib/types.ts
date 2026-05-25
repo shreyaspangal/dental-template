@@ -86,3 +86,9 @@ export interface MetricItem {
   label: string;
   description: string;
 }
+
+export interface BrandLogo {
+  url?: string;
+  alt: string;
+  name: string;
+}
