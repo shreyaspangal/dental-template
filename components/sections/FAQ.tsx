@@ -65,11 +65,11 @@ export function FAQ({ badge, headline, image, imageAlt, items }: FAQProps) {
   const lines = headline.split("\n");
 
   return (
-    <section id="faq" className="py-30 overflow-x-clip">
+    <section id="faq" className="py-8 md:py-12 lg:py-16 overflow-x-clip">
       <div className="container-base">
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-[30px]">
           {/* Left — sweeps in from the left */}
-          <FadeIn direction="right" distance={80} amount={0.4} className="flex flex-col gap-[100px] lg:w-[432px] shrink-0">
+          <FadeIn direction="right" distance={80} amount={0.4} className="flex flex-col gap-[40px] lg:gap-[100px] lg:w-[432px] shrink-0">
             {/* Heading */}
             <div className="flex flex-col gap-[10px]">
               <span className="inline-flex w-fit items-center gap-2 bg-blush-100 rounded-pill px-6 py-3 text-base font-light text-charcoal-900">
@@ -77,8 +77,7 @@ export function FAQ({ badge, headline, image, imageAlt, items }: FAQProps) {
                 {badge}
               </span>
               <h2
-                className="font-normal leading-[1.2] text-charcoal-900"
-                style={{ fontSize: 48, letterSpacing: "-0.025em" }}
+                className="font-normal leading-[1.2] text-charcoal-900 text-[28px] md:text-[38px] lg:text-[48px] tracking-tight"
               >
                 {lines.map((line, i) => (
                   <span key={i} className="block">{line}</span>

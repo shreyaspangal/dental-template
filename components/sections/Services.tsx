@@ -94,8 +94,7 @@ export function Services({ badge, headline, services, bookingUrl }: ServicesProp
         </FadeIn>
         <FadeIn distance={80} delay={0.2} amount={0.4}>
           <h2
-            className="font-normal leading-[1.2] text-charcoal-900"
-            style={{ fontSize: 48, letterSpacing: "-0.025em" }}
+            className="font-normal leading-[1.2] text-charcoal-900 text-[28px] md:text-[38px] lg:text-[48px] tracking-tight"
           >
             {lines.map((line, i) => (
               <span key={i} className="block">{line}</span>

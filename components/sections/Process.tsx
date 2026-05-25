@@ -52,7 +52,7 @@ export function Process({ badge, headline, steps }: ProcessProps) {
   const lines = headline.split("\n");
 
   return (
-    <section id="process" className="py-30">
+    <section id="process" className="py-8 md:py-12 lg:py-16">
       <div className="container-base">
         <div className="flex flex-col lg:flex-row gap-[30px]">
           {/* Left — sticky wrapper is plain div; FadeIn is the child so transform never touches the sticky element */}
@@ -63,8 +63,7 @@ export function Process({ badge, headline, steps }: ProcessProps) {
                 {badge}
               </span>
               <h2
-                className="font-normal leading-[1.2] text-charcoal-900"
-                style={{ fontSize: 48, letterSpacing: "-0.025em" }}
+                className="font-normal leading-[1.2] text-charcoal-900 text-[28px] md:text-[38px] lg:text-[48px] tracking-tight"
               >
                 {lines.map((line, i) => (
                   <span key={i} className="block">{line}</span>

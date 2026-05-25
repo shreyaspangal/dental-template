@@ -12,10 +12,7 @@ function MetricCard({ metric }: { metric: MetricItem }) {
   return (
     <div className="rounded-2xl bg-cream p-7.5 flex flex-col justify-between flex-1">
       <div className="flex items-center justify-between">
-        <p
-          className="font-normal leading-none text-charcoal-900"
-          style={{ fontSize: 48, letterSpacing: "-0.025em" }}
-        >
+        <p className="font-normal leading-none text-charcoal-900 text-[32px] md:text-[40px] lg:text-[48px] tracking-tight">
           {metric.value}
         </p>
         <span className="animate-spin-medium font-semibold text-2xl text-charcoal-900 shrink-0">✳</span>
@@ -29,7 +26,7 @@ function MetricCard({ metric }: { metric: MetricItem }) {
 
 export function About({ badge, headline, videoSrc, metrics }: AboutProps) {
   return (
-    <section id="about" className="pt-30 pb-0 overflow-x-clip">
+    <section id="about" className="pt-8 md:pt-12 lg:pt-16 pb-0 overflow-x-clip">
       <div className="container-base">
         {/* Row 1 — 2-col: badge sweeps in from far left, headline from far right */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-12.5">
@@ -41,8 +38,7 @@ export function About({ badge, headline, videoSrc, metrics }: AboutProps) {
           </FadeIn>
           <FadeIn direction="left" distance={80} delay={0.2} amount={0.4}>
             <h2
-              className="font-normal leading-[1.2] text-charcoal-900 lg:max-w-200"
-              style={{ fontSize: 48, letterSpacing: "-0.025em" }}
+              className="font-normal leading-[1.2] text-charcoal-900 lg:max-w-200 text-[28px] md:text-[38px] lg:text-[48px] tracking-tight"
             >
               {headline}
             </h2>

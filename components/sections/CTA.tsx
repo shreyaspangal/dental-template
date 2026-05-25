@@ -24,7 +24,7 @@ export function CTA({
   const lines = headline.split("\n");
 
   return (
-    <section className="bg-blush-100 py-30 overflow-x-clip">
+    <section className="bg-blush-100 py-8 md:py-12 lg:py-16 overflow-x-clip">
       <div className="container-base">
         <div className="flex flex-row items-center gap-[50px]">
           {/* Left image — sweeps in from the left */}
@@ -41,8 +41,7 @@ export function CTA({
           {/* Centre text — fades up from bottom */}
           <FadeIn distance={80} delay={0.2} amount={0.4} className="flex-1 flex flex-col items-center gap-[30px] text-center">
             <h2
-              className="font-normal leading-[1.2] text-charcoal-900"
-              style={{ fontSize: 48, letterSpacing: "-0.025em" }}
+              className="font-normal leading-[1.2] text-charcoal-900 text-[28px] md:text-[38px] lg:text-[48px] tracking-tight"
             >
               {lines.map((line, i) => (
                 <span key={i} className="block">{line}</span>

@@ -51,7 +51,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
 
 export function Testimonials({ badge, headline, testimonials }: TestimonialsProps) {
   return (
-    <section id="testimonials" className="py-30">
+    <section id="testimonials" className="py-8 md:py-12 lg:py-16">
       <div className="container-base flex flex-col gap-[50px]">
         {/* Row 1 — 1-col centered: badge up first, headline up after */}
         <div className="flex flex-col items-center gap-[30px]">
@@ -63,8 +63,7 @@ export function Testimonials({ badge, headline, testimonials }: TestimonialsProp
           </FadeIn>
           <FadeIn distance={80} delay={0.2} amount={0.4}>
             <h2
-              className="font-normal leading-[1.2] text-charcoal-900 text-center"
-              style={{ fontSize: 48, letterSpacing: "-0.025em" }}
+              className="font-normal leading-[1.2] text-charcoal-900 text-center text-[28px] md:text-[38px] lg:text-[48px] tracking-tight"
             >
               {headline}
             </h2>
