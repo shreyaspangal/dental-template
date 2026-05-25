@@ -1,4 +1,4 @@
-import { type ButtonHTMLAttributes, forwardRef } from "react";
+import { type ButtonHTMLAttributes, forwardRef, type ReactNode } from "react";
 import Link from "next/link";
 
 type Variant = "primary" | "secondary" | "ghost";
@@ -27,7 +27,27 @@ const sizeClasses: Record<Size, string> = {
 };
 
 const base =
-  "inline-flex items-center justify-center rounded-pill font-light transition-all duration-200 cursor-pointer select-none whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blush-400 disabled:pointer-events-none disabled:opacity-50";
+  "group relative inline-flex items-center justify-center rounded-pill font-light transition-all duration-200 cursor-pointer select-none whitespace-nowrap overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blush-400 disabled:pointer-events-none disabled:opacity-50";
+
+function SlideText({ children }: { children: ReactNode }) {
+  return (
+    <>
+      {/* Invisible spacer — holds the button's intrinsic size */}
+      <span className="invisible pointer-events-none select-none">{children}</span>
+      {/* Visible text — absolute over full button, slides out on hover */}
+      <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-out group-hover:translate-y-full">
+        {children}
+      </span>
+      {/* Ghost — sits one full button-height above, slides in on hover */}
+      <span
+        aria-hidden
+        className="absolute inset-0 flex items-center justify-center -translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0"
+      >
+        {children}
+      </span>
+    </>
+  );
+}
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -51,14 +71,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           className={classes}
           {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
         >
-          {children}
+          <SlideText>{children}</SlideText>
         </Link>
       );
     }
 
     return (
       <button ref={ref} className={classes} {...props}>
-        {children}
+        <SlideText>{children}</SlideText>
       </button>
     );
   }

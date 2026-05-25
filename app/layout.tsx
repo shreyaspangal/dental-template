@@ -18,8 +18,7 @@ const figtree = Figtree({
   display: "swap",
 });
 
-const { content, themeVars, googleFontsUrl } = loadBrand();
-
+const { content } = loadBrand();
 const { icon, icon32, apple } = content.FAVICON;
 
 export const metadata: Metadata = {
@@ -42,6 +41,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const { themeVars, googleFontsUrl } = loadBrand();
   return (
     <html
       lang="en"

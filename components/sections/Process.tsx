@@ -57,7 +57,7 @@ export function Process({ badge, headline, steps }: ProcessProps) {
         <div className="flex flex-col lg:flex-row gap-[30px]">
           {/* Left — sticky wrapper is plain div; FadeIn is the child so transform never touches the sticky element */}
           <div className="lg:sticky lg:top-96 lg:self-start lg:min-w-[430px]">
-            <FadeIn direction="right" distance={80} amount={0.4} className="flex flex-col gap-[30px]">
+            <FadeIn direction="right" distance={80} amount={0.15} className="flex flex-col gap-[30px]">
               <span className="w-fit inline-flex items-center gap-2 bg-blush-100 rounded-pill px-6 py-3 text-base font-light text-charcoal-900">
                 <span className="animate-spin-medium text-base font-semibold">✳</span>
                 {badge}
@@ -74,7 +74,7 @@ export function Process({ badge, headline, steps }: ProcessProps) {
           </div>
 
           {/* Right — fades up (direction="up" avoids x-axis overflow inside a sticky section) */}
-          <FadeIn distance={80} delay={0.2} amount={0.4} className="flex-1">
+          <FadeIn distance={80} delay={0.2} amount={0.1} className="flex-1">
             <div className="bg-blush-100 rounded-[30px] p-[10px] flex flex-col gap-[10px]">
               {steps.map((step) => (
                 <StepCard key={step.step} step={step} />

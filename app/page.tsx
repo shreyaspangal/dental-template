@@ -13,22 +13,21 @@ import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/sections/Footer";
 import { loadBrand } from "@/lib/brand";
 
-const { content } = loadBrand();
-const {
-  LOGO, TERMS_URL,
-  MARQUEE_ITEMS, NAV_LINKS, BOOKING_URL, HERO, ABOUT, METRICS,
-  SERVICES_SECTION, SERVICES, PROCESS_SECTION, PROCESS_STEPS,
-  TESTIMONIALS_SECTION, TESTIMONIALS, TEAM_SECTION, TEAM_MEMBERS,
-  FAQ_SECTION, FAQ_ITEMS, BLOG_SECTION, BLOG_POSTS,
-  INSTAGRAM_SECTION, INSTAGRAM_POSTS, CTA_SECTION,
-  CONTACT_INFO, BUSINESS_HOURS, FOOTER_MENU, SOCIAL_LINKS, METADATA,
-} = content;
-
 export default function HomePage() {
+  const { content } = loadBrand();
+  const {
+    LOGO, TERMS_URL,
+    MARQUEE_ITEMS, NAV_LINKS, BOOKING_URL, HERO, ABOUT, METRICS,
+    SERVICES_SECTION, SERVICES, PROCESS_SECTION, PROCESS_STEPS,
+    TESTIMONIALS_SECTION, TESTIMONIALS, TEAM_SECTION, TEAM_MEMBERS,
+    FAQ_SECTION, FAQ_ITEMS, BLOG_SECTION, BLOG_POSTS,
+    INSTAGRAM_SECTION, INSTAGRAM_POSTS, CTA_SECTION,
+    CONTACT_INFO, BUSINESS_HOURS, FOOTER_MENU, SOCIAL_LINKS, METADATA,
+  } = content;
   return (
     <>
       {/* ── Sticky top strip ──────────────────────────── */}
-      <MarqueeTicker items={MARQUEE_ITEMS} />
+      <MarqueeTicker items={SERVICES.map((s) => s.label)} />
 
       {/* ── Navigation ────────────────────────────────── */}
       <Navbar links={NAV_LINKS} bookingUrl={BOOKING_URL} logo={LOGO} />
@@ -119,6 +118,7 @@ export default function HomePage() {
         hours={BUSINESS_HOURS}
         menuLinks={FOOTER_MENU}
         socialLinks={SOCIAL_LINKS}
+        logo={LOGO}
         copyrightName={METADATA.copyrightName}
         termsUrl={TERMS_URL}
       />

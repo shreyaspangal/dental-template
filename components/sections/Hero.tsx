@@ -51,7 +51,7 @@ export function Hero({ data, bookingUrl }: HeroProps) {
                 key={i}
                 text={line}
                 as="span"
-                className="block whitespace-nowrap"
+                className="block"
                 delay={i * 0.28}
                 staggerDelay={0.03}
                 distance={18}

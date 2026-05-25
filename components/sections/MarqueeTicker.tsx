@@ -17,7 +17,11 @@ export function MarqueeTicker({
   separator = "✳",
   speed = "normal",
 }: MarqueeTickerProps) {
-  const doubled = [...items, ...items];
+  // Repeat until we have enough items to overflow any viewport, then double for the -50% loop trick
+  const MIN_COPIES = 10;
+  const reps = Math.ceil(MIN_COPIES / items.length);
+  const half = Array.from({ length: reps }, () => items).flat();
+  const doubled = [...half, ...half];
 
   return (
     <div

@@ -1,15 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { FadeIn } from "@/components/animations";
-import type { ContactInfo, BusinessHour, FooterLink, SocialLink } from "@/lib/types";
+import type { ContactInfo, BusinessHour, FooterLink, SocialLink, BrandLogo } from "@/lib/types";
 
 interface FooterProps {
   info: ContactInfo;
   hours: BusinessHour[];
   menuLinks: FooterLink[];
   socialLinks: SocialLink[];
+  logo: BrandLogo;
   copyrightName: string;
   termsUrl?: string;
 }
@@ -40,13 +42,13 @@ function HoursPanel({ hours }: { hours: BusinessHour[] }) {
         {hours.map((h, i) => (
           <div
             key={h.day}
-            className={`flex items-center justify-between py-[20px] ${i === 0 ? "pt-0" : ""} ${i === hours.length - 1 ? "pb-0" : "border-b border-blush-100"}`}
+            className={`flex flex-wrap items-center justify-between gap-x-4 gap-y-0.5 py-[20px] ${i === 0 ? "pt-0" : ""} ${i === hours.length - 1 ? "pb-0" : "border-b border-blush-100"}`}
           >
-            <div className="flex items-center gap-[10px]">
+            <div className="flex items-center gap-[10px] shrink-0">
               <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${h.isOpen ? "bg-blush-300" : "bg-charcoal-200"}`} />
               <span className="text-base font-light text-charcoal-900">{h.day}</span>
             </div>
-            <span className={`text-base font-light ${h.isOpen ? "text-charcoal-400" : "text-charcoal-200"}`}>
+            <span className={`text-sm sm:text-base font-light ${h.isOpen ? "text-charcoal-400" : "text-charcoal-200"}`}>
               {h.hours}
             </span>
           </div>
@@ -129,7 +131,7 @@ function FormPanel() {
   );
 }
 
-export function Footer({ info, hours, menuLinks, socialLinks, copyrightName, termsUrl = "#" }: FooterProps) {
+export function Footer({ info, hours, menuLinks, socialLinks, logo, copyrightName, termsUrl = "#" }: FooterProps) {
   return (
     <footer id="contact" className="py-[50px] overflow-x-clip">
       <div className="container-base">
@@ -161,16 +163,24 @@ export function Footer({ info, hours, menuLinks, socialLinks, copyrightName, ter
             <div className="bg-cream rounded-[20px] p-[30px] flex flex-col gap-[30px]">
               {/* Top: brand + menu + social */}
               <div className="flex flex-col lg:flex-row gap-[10px] items-start">
-                {/* Brand */}
-                <div className="flex-1">
-                  <p
-                    className="font-normal leading-none text-charcoal-900"
-                    style={{ fontSize: 96 }}
-                  >
-                    {copyrightName.split(" ").map((word, i) => (
-                      <span key={i} className="block leading-none">{word}</span>
-                    ))}
-                  </p>
+                {/* Brand logo */}
+                <div className="flex-1 flex items-start">
+                  {logo.url ? (
+                    <Image
+                      src={logo.url}
+                      alt={logo.alt}
+                      width={200}
+                      height={80}
+                      className="object-contain object-left max-h-20 w-auto"
+                      unoptimized
+                    />
+                  ) : (
+                    <p className="font-normal leading-none text-charcoal-900" style={{ fontSize: 64 }}>
+                      {copyrightName.split(" ").map((word, i) => (
+                        <span key={i} className="block leading-none">{word}</span>
+                      ))}
+                    </p>
+                  )}
                 </div>
 
                 {/* Menu */}
